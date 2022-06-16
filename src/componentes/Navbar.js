@@ -13,7 +13,7 @@ const Navbar = () => {
                 <a style={Styles.anchors} href="" >Envíos </a>
                 <a style={Styles.anchors} href="" >Contacto </a>
             </nav>
-            <ShoppingCartIcon />
+            <ShoppingCartIcon sx={{ fontSize: 30 }} />
 
         </header>
 
@@ -28,12 +28,15 @@ const Styles = {
         alignItems: "center",
         justifyContent: "space-between",
         paddingRight: "5%",
+        paddingTop: 10,
+        paddingBottom: 10,
         backgroundColor: "#00ADB5",
-        // color: "white"
+  
 
     },
     imagen: {
-        width: "8%",
+        width: "5%",
+        paddingLeft: "2%",
     },
     navBarStyle: {
         display: "flex",
@@ -41,10 +44,11 @@ const Styles = {
 
     },
     anchors: {
-        margin: 15,
+        
+        margin: 20,
         textDecoration: "none",
-        color: "white",
-        fontSize: "1.2rem"
+        fontSize: "1.5rem",
+        color: "black",
     }
 
 }
