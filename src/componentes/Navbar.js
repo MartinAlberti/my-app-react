@@ -1,6 +1,7 @@
 import React from "react"
 import Logo from "../imagenes/logo.png"
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import CartWidget from "./CartWidget"
+
 
 
 const Navbar = () => {
@@ -9,12 +10,13 @@ const Navbar = () => {
             <img style={Styles.imagen} src={Logo} alt="logo" />
             <h1>Instrumentos Musicales</h1>
             <nav style={Styles.navBarStyle}>
-                <a style={Styles.anchors} href="" >Productos </a>
-                <a style={Styles.anchors} href="" >Envíos </a>
-                <a style={Styles.anchors} href="" >Contacto </a>
+                <a style={Styles.anchors} href="!" >Productos </a>
+                <a style={Styles.anchors} href="!" >Envíos </a>
+                <a style={Styles.anchors} href="!" >Contacto </a>
             </nav>
-            <ShoppingCartIcon sx={{ fontSize: 30 }} />
-
+            < CartWidget />
+            
+            
         </header>
 
     )
@@ -31,7 +33,7 @@ const Styles = {
         paddingTop: 10,
         paddingBottom: 10,
         backgroundColor: "#00ADB5",
-  
+
 
     },
     imagen: {
@@ -44,12 +46,12 @@ const Styles = {
 
     },
     anchors: {
-        
+
         margin: 20,
         textDecoration: "none",
         fontSize: "1.5rem",
         color: "black",
-    }
+    },   
 
 }
 
