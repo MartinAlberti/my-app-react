@@ -1,16 +1,12 @@
 import React from "react"
+import ItemCount from "./ItemCount";
 
 
-const ItemListContainer = (props) => {
-    const { name } = props;
+const ItemListContainer = () => {
+    
     return (
         <>
-            <ul style={Styles.ul}>
-                <li>{name} 1</li>
-                <li>{name} 2</li>
-                <li>{name} 3</li>
-                <li>{name} 4</li>
-            </ul>
+            <ItemCount initial={0} stock= {9}  />
         </>
     )
 }
@@ -18,11 +14,3 @@ const ItemListContainer = (props) => {
 
 export default ItemListContainer
 
-const Styles = {
-    ul: {
-        display: "flex",
-        justifyContent: "space-between",
-        margin: 40,
-        listStyleType: "none",
-    },
-}

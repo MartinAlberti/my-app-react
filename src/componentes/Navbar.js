@@ -7,8 +7,8 @@ import CartWidget from "./CartWidget"
 const Navbar = () => {
     return (
         <header style={Styles.container} >
-            <img style={Styles.imagen} src={Logo} alt="logo" />
-            <h1>Instrumentos Musicales</h1>
+            <img style={Styles.imagen}  src={Logo} alt="logo" />
+            <h1 className="text-4xl">Instrumentos Musicales</h1>
             <nav style={Styles.navBarStyle}>
                 <a style={Styles.anchors} href="!" >Productos </a>
                 <a style={Styles.anchors} href="!" >Envíos </a>
@@ -37,7 +37,7 @@ const Styles = {
 
     },
     imagen: {
-        width: "5%",
+        width: "6%",
         paddingLeft: "2%",
     },
     navBarStyle: {
