@@ -1,0 +1,23 @@
+[
+    {
+        "id": 1,
+        "title": "Gibson Les Paul standard",
+        "description": " Cuerpo de caoba, tapa de arce figurado AA, mástil de caoba, diapasón de palisandro Pastillas dobles Gibson BurstBucker 61, interruptor de 3 vías ",
+        "price": 699750,
+        "pictureUrl": "https://media.guitarcenter.com/is/image/MMGS7/L54578000001000-02-720x720.jpg"
+    },
+    {
+        "id": 2,
+        "title": "Epiphone Les Paul Modern ",
+        "description": "Cuerpo de caoba, tapa de arce, mástil de caoba, diapasón de ébano. 2 pastillas humbucker ProBucker.",
+        "price": 162250,
+        "pictureUrl": "https://media.guitarcenter.com/is/image/MMGS7/L72557000001000-02-720x720.jpg"
+    },
+    {
+        "id": 3,
+        "title": "Fender Stratocaster American Professional II ",
+        "description": "Cuerpo de aliso macizo, mástil de arce con acabado satinado, 22 trastes, pastillas Fender V-Mod II de bobina simple.",
+        "price": 244000,
+        "pictureUrl": "https://media.guitarcenter.com/is/image/MMGS7/L78115000004000-02-720x720.jpg"
+    }
+]
