@@ -6,21 +6,22 @@ import ScaleLoader from "react-spinners/ScaleLoader";
 
 
 
+
 const ItemDetailContainer = () => {
   const [details, setDetails] = useState([])
   const [loader, setLoader] = useState(true)
 
 
   useEffect(() => {
-setTimeout(() => {
-  fetch("details.json")
+    setTimeout(() => {
+      fetch("details.json")
 
-      .then(res => res.json())
-      .then(data => setDetails(data))
-      .then(setLoader(false))
-}, 3000);
+        .then(res => res.json())
+        .then(data => setDetails(data))
+        .then(setLoader(false))
+    }, 3000);
 
-    
+
 
   }, []);
 
