@@ -2,10 +2,14 @@ import { React, useEffect, useState } from "react"
 import ItemCount from "./ItemCount";
 import ItemList from "./ItemList";
 import ScaleLoader from "react-spinners/ScaleLoader";
+import { useParams } from "react-router-dom";
 
 
 
 const ItemListContainer = () => {
+
+    const resultado = useParams();
+    console.log(resultado)
 
     const [products, setProducts] = useState([])
     const [loader, setLoader] = useState(true)
@@ -13,11 +17,10 @@ const ItemListContainer = () => {
     useEffect(() => {
         setTimeout(() => {
             fetch("productos.json")
-
                 .then(res => res.json())
                 .then(data => setProducts(data))
                 .then(setLoader(false))
-        }, 3000);
+        }, 1500);
 
 
 

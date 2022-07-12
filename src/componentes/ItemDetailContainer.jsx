@@ -8,18 +8,18 @@ import ScaleLoader from "react-spinners/ScaleLoader";
 
 
 const ItemDetailContainer = () => {
-  const [details, setDetails] = useState([])
+  const [productos, setProductos] = useState([])
   const [loader, setLoader] = useState(true)
 
 
   useEffect(() => {
     setTimeout(() => {
-      fetch("details.json")
+      fetch("productos.json")
 
         .then(res => res.json())
-        .then(data => setDetails(data))
+        .then(data => setProductos(data))
         .then(setLoader(false))
-    }, 3000);
+    }, 1500);
 
 
 
@@ -28,7 +28,7 @@ const ItemDetailContainer = () => {
 
   return (
     <>
-      {loader === false ? <ItemDetail details={details} /> : <div className="flex justify-center mt-60  "> <ScaleLoader color="#00ADB5" /></div>}
+      {loader === false ? <ItemDetail productos={productos} /> : <div className="flex justify-center mt-60  "> <ScaleLoader color="#00ADB5" /></div>}
     </>)
 }
 

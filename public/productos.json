@@ -4,8 +4,9 @@
         "title": "Gibson Les Paul standard",
         "description": " Cuerpo de caoba, tapa de arce figurado AA, mástil de caoba, diapasón de palisandro Pastillas dobles Gibson BurstBucker 61, interruptor de 3 vías ",
         "price": 699750,
-        "pictureUrl": "https://media.guitarcenter.com/is/image/MMGS7/L54578000001000-02-720x720.jpg"
-    },
+        "pictureUrl": "https://media.guitarcenter.com/is/image/MMGS7/L54578000001000-02-720x720.jpg",
+        "picture2": "https://media.guitarcenter.com/is/image/MMGS7/L54578000001000-00-720x720.jpg",
+        "picture3": "https://media.guitarcenter.com/is/image/MMGS7/L54578000001000-03-720x720.jpg" },
     {
         "id": 2,
         "title": "Epiphone Les Paul Modern ",

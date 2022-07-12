@@ -1,22 +1,27 @@
 import React from "react"
 import Logo from "../imagenes/logo.png"
 import CartWidget from "./CartWidget"
+import { Link,NavLink } from "react-router-dom"
 
 
 
 const Navbar = () => {
+
+ 
+
     return (
         <header style={Styles.container} >
-            <img style={Styles.imagen}  src={Logo} alt="logo" />
-            <h1 className="text-4xl">Instrumentos Musicales</h1>
+            <Link to="/"> <img style={Styles.imagen} src={Logo} alt="logo" /></Link>
+
+            <h1 className="text-4xl ">Instrumentos Musicales</h1>
             <nav style={Styles.navBarStyle}>
-                <a style={Styles.anchors} href="!" >Productos </a>
-                <a style={Styles.anchors} href="!" >Envíos </a>
-                <a style={Styles.anchors} href="!" >Contacto </a>
+                <Link style={Styles.anchors} to="/productos" >Productos </Link>
+                <Link style={Styles.anchors} to="/envios" >Envíos </Link>
+                <Link style={Styles.anchors} to="/contacto" >Contacto </Link>
             </nav>
-            < CartWidget />
-            
-            
+            <Link to="/cart" > < CartWidget /></Link>
+
+
         </header>
 
     )
@@ -37,7 +42,7 @@ const Styles = {
 
     },
     imagen: {
-        width: "6%",
+        width: "15%",
         paddingLeft: "2%",
     },
     navBarStyle: {
@@ -48,10 +53,12 @@ const Styles = {
     anchors: {
 
         margin: 20,
+        marginLeft:40,
+        marginRight: 40,
         textDecoration: "none",
         fontSize: "1.5rem",
         color: "black",
-    },   
+    },
 
 }
 
