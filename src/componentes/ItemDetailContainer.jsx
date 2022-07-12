@@ -10,21 +10,21 @@ import { useParams } from "react-router-dom";
 
 const ItemDetailContainer = () => {
   const [products, setProducts] = useState([])
-  const {itemId} = useParams()
-
   const [loader, setLoader] = useState(true)
-
+  const { itemId } = useParams()
 
   useEffect(() => {
-const productFound = products.find (product => product.id === itemId)
     
+
     setTimeout(() => {
       fetch("productos.json")
 
         .then(res => res.json())
         .then(data => setProducts(data))
         .then(setLoader(false))
-        .then(console.log(productFound))
+        .then(console.log({ itemId }))
+        
+        
     }, 1500);
 
 
