@@ -1,7 +1,7 @@
 import React from "react"
 import Logo from "../imagenes/logo.png"
 import CartWidget from "./CartWidget"
-import { Link,NavLink } from "react-router-dom"
+import { Link } from "react-router-dom"
 
 
 
