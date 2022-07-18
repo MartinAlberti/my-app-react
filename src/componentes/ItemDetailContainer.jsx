@@ -22,7 +22,7 @@ const ItemDetailContainer = () => {
         .then(res => res.json())
         .then(data => setProducts(data))
         .then(setLoader(false))
-        .then(console.log({ itemId }))
+        // .then(console.log({ itemId }))
         
         
     }, 1500);
