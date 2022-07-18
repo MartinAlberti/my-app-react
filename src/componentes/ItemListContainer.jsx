@@ -8,31 +8,30 @@ import { useParams } from "react-router-dom";
 
 const ItemListContainer = () => {
 
-    
+
 
     const [products, setProducts] = useState([])
     const [loader, setLoader] = useState(true)
 
+
+
+    const { categoryId } = useParams();
+
     useEffect(() => {
-        setTimeout(() => {
-            fetch("productos.json")
-                .then(res => res.json())
-                .then(data => setProducts(data))
-                .then(setLoader(false))
-        }, 1500);
+        const URL = categoryId
+            ? `https://fakestoreapi.com/products/category/${categoryId}`
+            : 'https://fakestoreapi.com/products';
+        fetch(URL)
+            .then(res => res.json())
+            .then(data => setProducts(data))
+            .catch(err => console.log(err))
+            .finally(() => setLoader(false))
+    }, [categoryId]);
 
-
-
-    }, []);
-    
 
     return (
         <>
-            {/* <ItemCount initial={0} stock={9} /> */}
-
-            {loader === false ? <ItemList products={products} /> : <div className="flex justify-center mt-60  "> <ScaleLoader color="#00ADB5" /></div>}
-
-
+            {loader ?   <div className="flex justify-center mt-60  "> <ScaleLoader color="#00ADB5" /></div> : <ItemList products={products} />}
         </>
     )
 }

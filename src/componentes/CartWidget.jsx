@@ -1,9 +1,19 @@
-import React from "react"
+import React, { useContext } from "react"
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
-const CartWidget = ()=>{
+
+
+
+const CartWidget = () => {
+
+
+
     return (
-        <ShoppingCartIcon sx={{ fontSize: 30 }} />
+        <div
+            className=""><ShoppingCartIcon sx={{ fontSize: 30 }} />
+        </div>
+
+
     )
 }
 

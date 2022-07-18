@@ -1,33 +1,38 @@
 import React, { createContext, useState, useEffect } from 'react'
 import Item from '../componentes/Item';
 
-export const cartContext = createContext();
-const { Provider } = cartContext;
+export const CartContext = createContext();
+const { Provider } = CartContext;
 
 
 const CartCustomProvider = ({ children }) => {
 
     const [products, setProducts] = useState([]);
-    const [qtyProducts, setQtyProducts] = useState([])
 
-
-    const getQtyProducts = () => {
-        
-
-    }
 
     const addProduct = (item, cuenta) => {
-        const newProduct = { ...item, qty: cuenta }
+        let newProduct = { ...item, qty: cuenta }
         setProducts(newProduct)
+
         console.log(products)
-    }
-
-
-    const deleteProduct = () => {
 
     }
 
-    const isInCart = () => {
+
+    const deleteProduct = (productId) => {
+        const productCopy = [products]
+        const toDelete = productCopy.filter(obj => {
+            return obj.id !== productId
+        })
+        setProducts(toDelete)
+        console.log(toDelete)
+        console.log(products)
+
+
+    }
+
+    const isInCart = (item) => {
+
 
     }
 
@@ -38,12 +43,8 @@ const CartCustomProvider = ({ children }) => {
 
     }
 
-
-    useEffect(() => {
-
-    }, [])
     return (
-        <Provider value={{ products, addProduct, deleteProduct, clear, qtyProducts,  }}>
+        <Provider value={{ products, addProduct, deleteProduct, clear, }}>
             {children}
         </Provider>
     )

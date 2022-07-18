@@ -2,7 +2,7 @@
 import React, { useState, useContext } from 'react'
 import ItemCount from "./ItemCount"
 import { Link } from "react-router-dom"
-import { cartContext } from '../context/CartContext'
+import { CartContext } from '../context/CartContext'
 
 
 
@@ -12,40 +12,38 @@ import { cartContext } from '../context/CartContext'
 const ItemDetail = ({ item }) => {
 
   const [comprar, setComprar] = useState(false)
-  const { addProduct } = useContext(cartContext);
-
+  const { addProduct } = useContext(CartContext);
+  const {getQtyProducts} = useContext(CartContext)
 
 
 
   const onAdd = (cuenta) => {
-    setComprar(true)
-    addProduct(item , cuenta )
+    setComprar(true);
+    addProduct(item, cuenta);
     
     console.log("agregado", cuenta)
-    
-    
+
+
 
 
   }
   return (
-    <>
 
-      <div className='flex justify-evenly mt-20 	  '>
-        {item.map((item) => <ul className=' shadow-sm p-4 w-80 h-120 ' key={item.id}>
-          <li className='flex justify-center text-2xl mb-8 '> {item.title}</li>
-          <li className='flex justify-center mb-4' > <img className='w-60 h-60 ' src={item.pictureUrl} alt="" /> </li>
-          <li className='flex justify-center mb-4' > <img className='w-60 h-60 ' src={item.picture2} alt="" /> </li>
-          <li className='flex justify-center mb-4' > <img className='w-60 h-60 ' src={item.picture3} alt="" /> </li>
-          <li className='flex justify-center mb-8 w-80'> {item.description}</li>
-          <li className='flex justify-end self-end text-xl '> ${item.price}</li>
-          <li> {comprar === false
-            ? <ItemCount stock={5} initial={0} onAdd={onAdd} />
-            : <Link to="/Cart"> <button className='mt-6 bg-blue-100 pl-4 pr-4 pt-1 pb-1'>Finalizar Compra</button> </Link>} </li>
+    
+    <div  className='m-16 '>
+              <h1 className='flex place-content-center text-3xl	mb-12'>{item.title}</h1>
+
+      <div className='flex place-content-center mb-12	'><img className='h-80 w-70 ' src={item.image} alt="" /></div>
+      <div>
+        <p className='flex place-content-center text-xl text-center mb-12'>{item.description}</p>
+        <p className='flex place-content-center	mb-12 text-3xl'>${item.price}</p>
+      </div>
+      {comprar === false
+        ? <ItemCount stock={5} initial={0} onAdd={onAdd} />
+        : <Link to="/Cart"> <div className='flex place-content-center'><button className='mt-6 bg-blue-100 pl-4 pr-4 pt-1 pb-1 text-2xl '>Finalizar Compra</button></div> </Link>}
+    </div>
 
 
-        </ul>)}
-
-      </div></>
   )
 }
 

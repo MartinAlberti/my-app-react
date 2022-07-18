@@ -1,26 +1,29 @@
 import React from "react"
 import Logo from "../imagenes/logo.png"
 import CartWidget from "./CartWidget"
-import { Link } from "react-router-dom"
+import { Link, NavLink } from "react-router-dom"
 
 
 
 const Navbar = () => {
 
- 
+    const categories = [
+        { name: "electronics", id: 0, route: "/category/electronics" },
+        { name: "jewelery", id: 1, route: "/category/jewelery" },
+        { name: "men's clothing", id: 2, route: "/category/men's clothing" },
+        { name: "women's clothing", id: 3, route: "/category/women's clothing" },
+    ];
+
 
     return (
         <header style={Styles.container} >
             <Link to="/"> <img style={Styles.imagen} src={Logo} alt="logo" /></Link>
 
-            <h1 className="text-4xl ">Instrumentos Musicales</h1>
+            <h1 className="text-4xl ">Tienda</h1>
             <nav style={Styles.navBarStyle}>
-                <Link style={Styles.anchors} to="/productos" >Productos </Link>
-                <Link style={Styles.anchors} to="/envios" >Envíos </Link>
-                <Link style={Styles.anchors} to="/contacto" >Contacto </Link>
+            {categories.map((category) => <NavLink key={category.id} style={Styles.anchors} to={category.route}>{category.name}</NavLink>)}
             </nav>
             <Link to="/cart" > < CartWidget /></Link>
-
 
         </header>
 

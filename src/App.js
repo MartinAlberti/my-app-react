@@ -4,8 +4,6 @@ import ItemListContainer from "./componentes/ItemListContainer"
 import ItemDetailContainer from './componentes/ItemDetailContainer';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Cart from './componentes/Cart';
-import Envios from './componentes/Envios';
-import Contacto from './componentes/Contacto';
 import CartCustomProvider from "./context/CartContext"
 
 
@@ -19,12 +17,10 @@ const App = () => {
       <CartCustomProvider >
         <Navbar />
         <Routes>
-          <Route path='/' element={<ItemListContainer />} />
-          <Route path='/cart' element={<Cart />} />
-          <Route path='/productos' element={<ItemListContainer />} />
-          <Route path='/envios' element={<Envios />} />
-          <Route path='/contacto' element={<Contacto />} />
-          <Route path='/:itemId' element={<ItemDetailContainer />} />
+          <Route path="/" element={<ItemListContainer />} />
+          <Route path="/category/:categoryId" element={<ItemListContainer greeting='Bienvenido' />} />
+          <Route path="/product/:productId" element={<ItemDetailContainer />} />
+          <Route path="/cart" element={<Cart />} />
         </Routes>
       </CartCustomProvider>
 
