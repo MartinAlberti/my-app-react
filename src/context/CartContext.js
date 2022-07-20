@@ -1,5 +1,5 @@
 import React, { createContext, useState, useEffect } from 'react'
-import Item from '../componentes/Item';
+
 
 export const CartContext = createContext();
 const { Provider } = CartContext;
@@ -8,37 +8,45 @@ const { Provider } = CartContext;
 const CartCustomProvider = ({ children }) => {
 
     const [products, setProducts] = useState([]);
+    const [qtyProducts, setQtyProducts] = useState(0)
 
+
+
+    const getQtyProducts = () => {
+        let qty = 0;
+        products.forEach(product => {
+            qty += product.qty
+        })
+        setQtyProducts(qty);
+    }
+
+
+    useEffect(() => {
+        getQtyProducts()
+    }, [products])
 
     const addProduct = (item) => {
         if (isInCart(item.id)) {
-
+            const found = products.find(p => p.id === item.id)
+            const index = products.indexOf(found)
             const aux = [...products]
-            const found = aux.find(p => p.id === item.id)
-            found.qty += item.qty
+            aux[index].qty += item.qty
             setProducts(aux)
+            console.log("duplicado")
 
 
         }
         else {
 
-            setProducts([...products, {...item}])
-
-            console.log(products)
+            setProducts([...products, item])
         }
 
     }
 
 
     const deleteProduct = (id) => {
-        let aux = [...products]
-        aux = aux.filter((p) => p.pd !== id)
 
-
-        console.log(id)
-        setProducts(aux)
-
-
+        setProducts(products.filter(product => product.id !== id));
     }
 
     const isInCart = (id) => {
@@ -55,7 +63,7 @@ const CartCustomProvider = ({ children }) => {
     }
 
     return (
-        <Provider value={{ products, addProduct, deleteProduct, clear, }}>
+        <Provider value={{ products, addProduct, deleteProduct, clear, qtyProducts }}>
             {children}
         </Provider>
     )

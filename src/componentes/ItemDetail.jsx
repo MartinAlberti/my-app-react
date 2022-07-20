@@ -12,7 +12,7 @@ const ItemDetail = ({ item }) => {
 
   const [comprar, setComprar] = useState(false)
   const { addProduct } = useContext(CartContext);
-  
+
 
 
 
@@ -21,19 +21,12 @@ const ItemDetail = ({ item }) => {
     addProduct({ ...item, qty: cuenta });
     setComprar(true);
     console.log("agregado", cuenta)
-   
-
-
-
-
-
   }
   return (
 
 
     <div className='m-16 '>
       <h1 className='flex place-content-center text-3xl	mb-12'>{item.title}</h1>
-
       <div className='flex place-content-center mb-12	'><img className='h-80 w-70 ' src={item.image} alt="" /></div>
       <div>
         <p className='flex place-content-center text-xl text-center mb-12'>{item.description}</p>
