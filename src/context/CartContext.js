@@ -10,28 +10,39 @@ const CartCustomProvider = ({ children }) => {
     const [products, setProducts] = useState([]);
 
 
-    const addProduct = (item, cuenta) => {
-        let newProduct = { ...item, qty: cuenta }
-        setProducts(newProduct)
+    const addProduct = (item) => {
+        if (isInCart(item.id)) {
 
-        console.log(products)
+            const aux = [...products]
+            const found = aux.find(p => p.id === item.id)
+            found.qty += item.qty
+            setProducts(aux)
 
-    }
 
+        }
+        else {
 
-    const deleteProduct = (productId) => {
-        const productCopy = [products]
-        const toDelete = productCopy.filter(obj => {
-            return obj.id !== productId
-        })
-        setProducts(toDelete)
-        console.log(toDelete)
-        console.log(products)
+            setProducts([...products, {...item}])
 
+            console.log(products)
+        }
 
     }
 
-    const isInCart = (item) => {
+
+    const deleteProduct = (id) => {
+        let aux = [...products]
+        aux = aux.filter((p) => p.pd !== id)
+
+
+        console.log(id)
+        setProducts(aux)
+
+
+    }
+
+    const isInCart = (id) => {
+        products.some(product => product.id === id)
 
 
     }
